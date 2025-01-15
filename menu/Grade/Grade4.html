@@ -61,33 +61,18 @@
 </style>
 
 <body>
-    <nav class="shadow p-3 m-4 rounded">
-        <ul class="nav justify-content-center">
-            <li class="nav-item">
-                <a class="nav-link" href="../index.html">ໜ້າຫຼັກ</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Add_In.html">ເພີ່ມເຂົ້າ</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Get_Out.html">ຈ່າຍອອກ</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link activess" aria-current="page" href="History.html">ການເຄື່ອນໄຫວ</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Grade/Vew_Grade.html">list From Grade</a>
-            </li>
-        </ul>
-    </nav>
+
     <center>
-        <h1>ປະຫວັດການເຄື່ອນໄຫວ</h1>
+        <h1>ລາຍຊື່ ວິຊາຮຽນ Grade4</h1>
         </center>
         <a href=""></a>
     <div class="container">
     <table id="example" class="table table-condensed table-striped"></table>
     </div>
-
+    <!-- Main JavaScript File -->
+    <?!= include('script') ?>
+    
+    <!-- JavaScript DataTable -->
     <script src="https://cdn.datatables.net/1.11.2/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://cdn.datatables.net/searchbuilder/1.2.1/js/dataTables.searchBuilder.min.js"></script>
     <script src="https://cdn.datatables.net/searchbuilder/1.2.1/js/searchBuilder.bootstrap5.min.js"></script>
@@ -98,16 +83,14 @@
     
     
 </body>
-
-
 <script>
     // Define spreadsheet URL.
-    var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1fJs5DZkR0cavRgoNZ8MCDrEfalkDUAbprPMjSSh2EJA/edit?gid=849046931#gid=849046931';
+    var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1fJs5DZkR0cavRgoNZ8MCDrEfalkDUAbprPMjSSh2EJA/edit?gid=1876978871#gid=1876978871';
     
     // Load top ten switch hitters.
     $('#example').sheetrock({
       url: mySpreadsheet,
-      query: ("select A,B,C,D,E offset 1"),
+      query: ("select A,B,C offset 1"),
     }).on('sheetrock:loaded', function () {
       $(this).DataTable({
         
@@ -118,11 +101,10 @@
         //sPaginationType: "full_numbers",
         // กำหนดหัวคอลัมภ์โดยตั้งชื่อเอง
         columns: [
-          { title: "Date" },
           { title: "Barcode Books" },
-          { title: "Get_in" },
+          { title: "Suject" },
+          { title: "Remaining Quantity" },
           { title: "Get_out" },
-          { title: "Description" },
           ],
         language: {
           sProcessing: "กำลังดำเนินการ...",
